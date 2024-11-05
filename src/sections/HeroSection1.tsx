@@ -20,7 +20,7 @@ export default function HeroSection1() {
   };
 
   return (
-    <section className="w-full max-w-7xl mx-auto flex flex-col justify-between">
+    <section className="w-full h-[90dvh] max-w-7xl mx-auto flex flex-col justify-center">
       <div className="px-4 md:pl-4 md:pr-[50%] z-10 flex flex-col items-center sm:pt-16 pt-16 md:pt-24 w-full">
         <div className="mb-4 text-left w-full">
           <MotionDiv variants={titleVariants} initial="hidden" className="mb-4">

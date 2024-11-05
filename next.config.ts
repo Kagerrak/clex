@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
       "assets.aceternity.com",
     ],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;

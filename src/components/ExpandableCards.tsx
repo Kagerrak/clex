@@ -4,6 +4,7 @@ import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 import { Badge } from "./ui/badge";
+import { Mail, MapPin, PhoneCall } from "lucide-react";
 
 export function ExpandableCards() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
@@ -45,7 +46,7 @@ export function ExpandableCards() {
       </AnimatePresence>
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0  grid place-items-center z-[100]">
+          <div className="fixed inset-0  grid place-items-center z-[100] bg-black/70">
             <motion.button
               key={`button-${active.title}-${id}`}
               layout
@@ -69,7 +70,7 @@ export function ExpandableCards() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[70%]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-[70%]  md:h-fit  flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
@@ -115,7 +116,7 @@ export function ExpandableCards() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [scrollbar-width:none] "
                   >
                     {typeof active.content === "function"
                       ? active.content()
@@ -220,9 +221,9 @@ const cards = [
         <div className="space-y-6">
           <div className="space-y-6">
             <div className="space-y-2">
-              <h4 className="text-lg font-semibold flex items-center gap-2">
-                <Badge className="bg-yellow-100 text-yellow-900">01</Badge>
-                CLIENT-CENTRIC
+              <h4 className="text-lg font-semibold flex items-center ">
+                <Badge className="bg-yellow-100 text-yellow-900 mr-2">01</Badge>
+                <span className="text-[#a67b2c]">C</span>LIENT-CENTRIC
               </h4>
               <p className="text-gray-700 dark:text-gray-300">
                 We put our clients at the heart of everything we do. Their
@@ -230,8 +231,38 @@ const cards = [
                 expectations in every interaction.
               </p>
             </div>
-
-            {/* ... Add other core values similarly ... */}
+            <div className="space-y-2">
+              <h4 className="text-lg font-semibold flex items-center ">
+                <Badge className="bg-yellow-100 text-yellow-900 mr-2">02</Badge>
+                <span className="text-[#a67b2c]">L</span>EADERSHIP IN INNOVATION
+              </h4>
+              <p className="text-gray-700 dark:text-gray-300">
+                We lead the way in adopting and implementing cutting-edge
+                technologies to revolutionize the customs brokerage industry.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <h4 className="text-lg font-semibold flex items-center">
+                <Badge className="bg-yellow-100 text-yellow-900 mr-2">03</Badge>
+                <span className="text-[#a67b2c]">E</span>FFICIENCY IN EXECUTION
+              </h4>
+              <p className="text-gray-700 dark:text-gray-300">
+                We are committed to optimizing processes and delivering swift,
+                accurate services that save time and resources for our clients.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <h4 className="text-lg font-semibold flex items-center">
+                <Badge className="bg-yellow-100 text-yellow-900 mr-2">04</Badge>
+                E<span className="text-[#a67b2c]">X</span>CELLENCE IN ALL
+                ASPECTS
+              </h4>
+              <p className="text-gray-700 dark:text-gray-300">
+                We pursue excellence in every facet of our operations, from
+                customer service to compliance, ensuring the highest standards
+                of quality and professionalism.
+              </p>
+            </div>
           </div>
         </div>
       );
@@ -248,33 +279,27 @@ const cards = [
         <div className="space-y-6">
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-blue-900 dark:text-blue-100"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
+              {/*
+               */}
+              <MapPin />
               <p className="text-gray-700 dark:text-gray-300">
                 Block 2 Lot 5, Dreamland, Hagonoy,
                 <br />
                 Taguig City, NCR, PH, 1630
               </p>
             </div>
-            {/* ... Add other contact information similarly ... */}
+            <div className="flex items-start gap-3">
+              <PhoneCall />
+              <p className="text-gray-700 dark:text-gray-300">
+                +63-919-096-CLEX(2539)
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <Mail />
+              <p className="text-gray-700 dark:text-gray-300">
+                info@cloudexpresscb.com
+              </p>
+            </div>
           </div>
         </div>
       );
