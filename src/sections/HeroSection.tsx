@@ -1,11 +1,8 @@
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { MotionDiv } from "@/components/MotionDiv";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { services } from "@/constants/";
-import { CompanyModals } from "@/components/CompanyModals";
-import { ExpandableCardDemo } from "@/components/ExpandableCards";
 
 export default function HeroSection() {
   const titleVariants = {
@@ -78,19 +75,6 @@ export default function HeroSection() {
               hoverImage={service.hoverImage}
             />
           ))}
-        </div>
-      </div>
-
-      <ExpandableCardDemo />
-      <div className="absolute bottom-[-10rem] right-[-10rem] w-80 h-80 md:w-[28rem] md:h-[28rem] lg:w-[36rem] lg:h-[36rem] overflow-hidden rounded-3xl border-8 border-blue-900 rotate-45">
-        <div className="absolute w-[1000px] h-[650px] left-[-200px] top-[-180px]">
-          <Image
-            src="/landing/hero-1.png"
-            alt="Logistics and transportation"
-            layout="fill"
-            objectFit="cover"
-            className="-rotate-45"
-          />
         </div>
       </div>
     </section>

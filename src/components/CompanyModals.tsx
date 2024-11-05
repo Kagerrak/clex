@@ -7,7 +7,6 @@ import {
 import {
   VisionMissionModal,
   CoreValuesModal,
-  ContactModal,
 } from "@/components/modals/company-modals";
 
 export const CompanyModals = () => {
